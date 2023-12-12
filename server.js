@@ -16,12 +16,13 @@ const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/userRoutes");
 const { errorHandler,notFound } = require("./middlewares/errorMiddleware");
+var cors = require('cors');
 
 // to access env variables
 dotenv.config()
 const port = process.env.PORT || 5000
 
-
+app.use(cors());
 
 connectDB();
 const app = express();
